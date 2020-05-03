@@ -25,6 +25,7 @@ import detectron2.utils.comm as comm
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.config import get_cfg
 from detectron2.data import MetadataCatalog
+from detectron2.data.datasets import register_coco_instances
 from detectron2.engine import DefaultTrainer, default_argument_parser, default_setup, hooks, launch
 from detectron2.evaluation import (
     CityscapesInstanceEvaluator,
@@ -38,7 +39,6 @@ from detectron2.evaluation import (
     verify_results,
 )
 from detectron2.modeling import GeneralizedRCNNWithTTA
-
 
 class Trainer(DefaultTrainer):
     """
@@ -130,6 +130,9 @@ def setup(args):
 
 
 def main(args):
+    register_coco_instances("medline_train", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/instances_train.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_train")
+    register_coco_instances("medline_val", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/instances_val.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_val")
+
     cfg = setup(args)
 
     if args.eval_only:
