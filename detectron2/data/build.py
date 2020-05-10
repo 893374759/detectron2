@@ -65,6 +65,40 @@ def filter_images_with_only_crowd_annotations(dataset_dicts):
     )
     return dataset_dicts
 
+def filter_images_with_incorrect_annotations(dataset_dicts):
+    """
+    Filter out images with incorrect annotations
+    (i.e. Area of bbox == 0).
+
+    Args:
+        dataset_dicts (list[dict]): annotations in Detectron2 Dataset format.
+
+    Returns:
+        list[dict]: the same format, but filtered.
+    """
+    num_before = len(dataset_dicts)
+
+    def valid(anns):
+        for ann in anns:
+            width = ann['width']
+            height = ann['height']
+            x1 = np.max((0, ann['bbox'][0]))
+            y1 = np.max((0, ann['bbox'][1]))
+            x2 = np.min((width - 1, x1 + np.max((0, ann['bbox'][2] - 1))))
+            y2 = np.min((height - 1, y1 + np.max((0, ann['bbox'][3] - 1))))
+            if not (ann['area'] > 0 and x2 >= x1 and y2 >= y1):
+                return False
+        return True
+
+    dataset_dicts = [x for x in dataset_dicts if valid(x["annotations"])]
+    num_after = len(dataset_dicts)
+    logger = logging.getLogger(__name__)
+    logger.info(
+        "Removed {} images with dirty bbox annotations. {} images left.".format(
+            num_before - num_after, num_after
+        )
+    )
+    return dataset_dicts
 
 def filter_images_with_few_keypoints(dataset_dicts, min_keypoints_per_image):
     """
