@@ -268,7 +268,7 @@ def get_detection_dataset_dicts(
         ]
 
     dataset_dicts = list(itertools.chain.from_iterable(dataset_dicts))
-
+    filter_images_with_incorrect_annotations(dataset_dicts)
     has_instances = "annotations" in dataset_dicts[0]
     # Keep images without instance-level GT if the dataset has semantic labels.
     if filter_empty and has_instances and "sem_seg_file_name" not in dataset_dicts[0]:
