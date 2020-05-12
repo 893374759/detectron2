@@ -77,20 +77,21 @@ def filter_images_with_incorrect_annotations(dataset_dicts):
         list[dict]: the same format, but filtered.
     """
     num_before = len(dataset_dicts)
-
-    def valid(anns):
+    def valid(image_anns):
+        width = image_anns['width']
+        height = image_anns['height']
+        anns = image_anns['annotations']
         for ann in anns:
-            width = ann['width']
-            height = ann['height']
             x1 = np.max((0, ann['bbox'][0]))
             y1 = np.max((0, ann['bbox'][1]))
+            box_w = np.max((0, ann['bbox'][2]))
+            box_h = np.max((0, ann['bbox'][3]))
             x2 = np.min((width - 1, x1 + np.max((0, ann['bbox'][2] - 1))))
             y2 = np.min((height - 1, y1 + np.max((0, ann['bbox'][3] - 1))))
-            if not (ann['area'] > 0 and x2 >= x1 and y2 >= y1):
+            if not (box_w*box_h > 0 and x2 >= x1 and y2 >= y1):
                 return False
         return True
-
-    dataset_dicts = [x for x in dataset_dicts if valid(x["annotations"])]
+    dataset_dicts = [x for x in dataset_dicts if valid(x)]
     num_after = len(dataset_dicts)
     logger = logging.getLogger(__name__)
     logger.info(

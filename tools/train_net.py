@@ -136,8 +136,8 @@ def main(args):
     register_coco_instances("table_train", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/table_train.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_train")
     register_coco_instances("table_val", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/table_val.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_val")
 
-    register_coco_instances("ICDAR2019_train", {}, "/Datadisk/shared-corpus/ICDAR2019/cTDaR/ICDAR2019train.json", "/Datadisk/shared-corpus/ICDAR2019/cTDaR/train")
-    register_coco_instances("ICDAR2019_val", {}, "/Datadisk/shared-corpus/ICDAR2019/cTDaR/ICDAR2019val.json", "/Datadisk/shared-corpus/ICDAR2019/cTDaR/test")
+    register_coco_instances("ICDAR2019_train", {}, "/Datadisk/shared-corpus/ICDAR2019/cTDaR/ICDAR2019train.json", "/Datadisk/shared-corpus/ICDAR2019/cTDaR/train/TRACKA")
+    register_coco_instances("ICDAR2019_val", {}, "/Datadisk/shared-corpus/ICDAR2019/cTDaR/ICDAR2019val.json", "/Datadisk/shared-corpus/ICDAR2019/cTDaR/test/TRACKA")
 
     register_coco_instances("ICDAR2013_train", {}, "/Datadisk/shared-corpus/ICDAR2013/cTDaR/ICDAR2013train.json", "/Datadisk/shared-corpus/ICDAR2013/cTDaR/train")
     register_coco_instances("ICDAR2013_val", {}, "/Datadisk/shared-corpus/ICDAR2013/cTDaR/ICDAR2013val.json", "/Datadisk/shared-corpus/ICDAR2013/cTDaR/val")
