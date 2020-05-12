@@ -6,7 +6,7 @@ _BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
   MASK_ON: False
   # WEIGHTS: "./PretrainedModel/PubLayNet/model_final.pkl"
-  # PIXEL_STD: [57.375, 57.120, 58.395]
+  PIXEL_STD: [57.375, 57.120, 58.395]
   RESNETS:
     STRIDE_IN_1X1: False  # this is a C2 model
     NUM_GROUPS: 64
@@ -14,25 +14,19 @@ MODEL:
     DEPTH: 101
   ROI_HEADS:
     NUM_CLASSES: 5
-    NMS_THRESH_TEST: 0.5
   RETINANET:
     NUM_CLASSES: 5
-  ROI_BOX_HEAD: 
+  ROI_BOX_HEAD:
+    POOLER_RESOLUTION: 7
     POOLER_SAMPLING_RATIO: 2
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
-    PRE_NMS_TOPK_TRAIN: 2000
-    PRE_NMS_TOPK_TEST: 1000
-    POST_NMS_TOPK_TEST: 1000
-  ANCHOR_GENERATOR:
-    SIZES: [[32], [64], [128], [256], [512]]
 DATASETS:
   TRAIN: ("medline_train",)
   TEST: ("medline_val",)
 SOLVER:
-  STEPS: [120000, 160000]
+  STEPS: (120000, 160000)
   MAX_ITER: 180000
-  WEIGHT_DECAY: 0.0001
   BASE_LR: 0.01
   GAMMA: 0.1
   WARMUP_FACTOR: 0.3333333333333333
@@ -47,4 +41,4 @@ INPUT:
 TEST:
   AUG:
     FLIP: False
-OUTPUT_DIR: "./output/PubLayNet"
+OUTPUT_DIR: "./output/PubLayNet/FasterRCNN"
