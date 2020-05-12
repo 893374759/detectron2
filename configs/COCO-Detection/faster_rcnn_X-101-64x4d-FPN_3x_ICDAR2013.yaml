@@ -5,8 +5,8 @@
 _BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
   MASK_ON: False
-  # WEIGHTS: "./PretrainedModel/PubLayNet/model_final.pkl"
-  # PIXEL_STD: [57.375, 57.120, 58.395]
+  WEIGHTS: "./PretrainedModel/PubLayNet/model_final.pkl"
+  PIXEL_STD: [57.375, 57.120, 58.395]
   RESNETS:
     STRIDE_IN_1X1: False  # this is a C2 model
     NUM_GROUPS: 64
@@ -14,25 +14,18 @@ MODEL:
     DEPTH: 101
   ROI_HEADS:
     NUM_CLASSES: 1
-    NMS_THRESH_TEST: 0.5
   RETINANET:
     NUM_CLASSES: 1
-  ROI_BOX_HEAD: 
+  ROI_BOX_HEAD:
     POOLER_SAMPLING_RATIO: 2
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
-    PRE_NMS_TOPK_TRAIN: 2000
-    PRE_NMS_TOPK_TEST: 1000
-    POST_NMS_TOPK_TEST: 1000
-  ANCHOR_GENERATOR:
-    SIZES: [[32], [64], [128], [256], [512]]
 DATASETS:
-  TRAIN: ("ICDAR2019_train",)
-  TEST: ("ICDAR2019_val",)
+  TRAIN: ("ICDAR2013_train",)
+  TEST: ("ICDAR2013_val",)
 SOLVER:
-  STEPS: [470, 800]
-  MAX_ITER: 800
-  WEIGHT_DECAY: 0.0001
+  STEPS: (100, 200)
+  MAX_ITER: 200
   BASE_LR: 0.001
   GAMMA: 0.1
   WARMUP_FACTOR: 0.3333333333333333
@@ -47,4 +40,4 @@ INPUT:
 TEST:
   AUG:
     FLIP: False
-OUTPUT_DIR: "./output/ICDAR2019"
+OUTPUT_DIR: "./output/ICDAR2013/FasterRCNN"
