@@ -130,17 +130,17 @@ def setup(args):
 
 
 def main(args):
-    register_coco_instances("medline_train", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/instances_train.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_train")
-    register_coco_instances("medline_val", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/instances_val.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_val")
+    register_coco_instances("medline_train", {}, "/media/shared-corpus/publaynet/annotations/instances_train.json", "/media/shared-corpus/publaynet/medline_train")
+    register_coco_instances("medline_val", {}, "/media/shared-corpus/publaynet/annotations/instances_val.json", "/media/shared-corpus/publaynet/medline_val")
 
-    register_coco_instances("table_train", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/table_train.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_train")
-    register_coco_instances("table_val", {}, "/Datadisk/shared-corpus/publaynet/publaynet/annotations/table_val.json", "/Datadisk/shared-corpus/publaynet/publaynet/medline_val")
+    register_coco_instances("table_train", {}, "/media/shared-corpus/publaynet/annotations/table_train.json", "/media/shared-corpus/publaynet/medline_train")
+    register_coco_instances("table_val", {}, "/media/shared-corpus/publaynet/annotations/table_val.json", "/media/shared-corpus/publaynet/medline_val")
 
-    register_coco_instances("ICDAR2019_train", {}, "/Datadisk/shared-corpus/ICDAR2019/cTDaR/ICDAR2019train.json", "/Datadisk/shared-corpus/ICDAR2019/cTDaR/train/TRACKA")
-    register_coco_instances("ICDAR2019_val", {}, "/Datadisk/shared-corpus/ICDAR2019/cTDaR/ICDAR2019val.json", "/Datadisk/shared-corpus/ICDAR2019/cTDaR/test/TRACKA")
+    register_coco_instances("ICDAR2019_train", {}, "/media/shared-corpus/ICDAR2019/cTDaR/ICDAR2019train.json", "/media/shared-corpus/ICDAR2019/cTDaR/train/TRACKA")
+    register_coco_instances("ICDAR2019_val", {}, "/media/shared-corpus/ICDAR2019/cTDaR/ICDAR2019val.json", "/media/shared-corpus/ICDAR2019/cTDaR/test/TRACKA")
 
-    register_coco_instances("ICDAR2013_train", {}, "/Datadisk/shared-corpus/ICDAR2013/cTDaR/ICDAR2013train.json", "/Datadisk/shared-corpus/ICDAR2013/cTDaR/train")
-    register_coco_instances("ICDAR2013_val", {}, "/Datadisk/shared-corpus/ICDAR2013/cTDaR/ICDAR2013val.json", "/Datadisk/shared-corpus/ICDAR2013/cTDaR/val")
+    register_coco_instances("ICDAR2013_train", {}, "/media/shared-corpus/ICDAR2013/cTDaR/ICDAR2013train.json", "/media/shared-corpus/ICDAR2013/cTDaR/train")
+    register_coco_instances("ICDAR2013_val", {}, "/media/shared-corpus/ICDAR2013/cTDaR/ICDAR2013val.json", "/media/shared-corpus/ICDAR2013/cTDaR/val")
 
     cfg = setup(args)
 
