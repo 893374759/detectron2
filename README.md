@@ -9,7 +9,7 @@ and it originates from [maskrcnn-benchmark](https://github.com/facebookresearch/
 Here is a copy to imply Detectron2 on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) detection task. See more in [GETTING_STARTED.md](GETTING_STARTED.md).
 
 <div align="center">
-  <img src="https://s1.ax1x.com/2020/05/28/teWKZ4.md.jpg"/>
+  <img src="https://s1.ax1x.com/2020/05/28/teWKZ4.jpg"/>
 </div>
 
 ### What's New
@@ -19,7 +19,7 @@ Here is a copy to imply Detectron2 on [PubLayNet](https://github.com/ibm-aur-nlp
   We'll open source more research projects in this way.
 * It [trains much faster](https://detectron2.readthedocs.io/notes/benchmarks.html).
 
-See our [blog post](https://ai.facebook.com/blog/-detectron2-a-pytorch-based-modular-object-detection-library-/)
+See [blog post](https://ai.facebook.com/blog/-detectron2-a-pytorch-based-modular-object-detection-library-/)
 to see more demos and learn about detectron2.
 
 ## Installation
