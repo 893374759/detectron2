@@ -9,7 +9,7 @@ and it originates from [maskrcnn-benchmark](https://github.com/facebookresearch/
 Here is a copy to imply Detectron2 on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) detection task. See more in [GETTING_STARTED.md](GETTING_STARTED.md).
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/1381301/66535560-d3422200-eace-11e9-9123-5535d469db19.png"/>
+  <img src="https://s1.ax1x.com/2020/05/28/teWKZ4.md.jpg"/>
 </div>
 
 ### What's New
