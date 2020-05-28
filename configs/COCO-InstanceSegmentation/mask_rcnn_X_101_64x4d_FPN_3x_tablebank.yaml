@@ -1,9 +1,8 @@
-# set for PubLayNet: https://github.com/ibm-aur-nlp/PubLayNet
+# set for TableBank: https://github.com/doc-analysis/TableBank
 _BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
   MASK_ON: True
-#  WEIGHTS: "detectron2://ImageNetPretrained/FAIR/X-101-32x8d.pkl"
-  WEIGHTS: "./output/PubLayNet/FasterRCNN/051701resume/model_final.pth"
+  WEIGHTS: "/home/mojianqiao/work/detectron2/output/PubLayNet_table/MaskRCNN/051501/model_final.pth"
   PIXEL_STD: [57.375, 57.120, 58.395]
   RESNETS:
     STRIDE_IN_1X1: False  # this is a C2 model
@@ -11,9 +10,9 @@ MODEL:
     WIDTH_PER_GROUP: 4
     DEPTH: 101
   ROI_HEADS:
-    NUM_CLASSES: 5
+    NUM_CLASSES: 1
   RETINANET:
-    NUM_CLASSES: 5
+    NUM_CLASSES: 1
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
   ROI_MASK_HEAD:
@@ -21,20 +20,20 @@ MODEL:
     POOLER_RESOLUTION: 28
     POOLER_SAMPLING_RATIO: 2
 DATASETS:
-  TRAIN: ("medline_train",)
-  TEST: ("medline_val",)
+  TRAIN: ("tablebank_train",)
+  TEST: ("tablebank_val",)
 SOLVER:
-  STEPS: (70000, 90000)
-  MAX_ITER: 50000
+  STEPS: (6400,  10000)
+  MAX_ITER: 11000
   BASE_LR: 0.01
   GAMMA: 0.1
   WARMUP_FACTOR: 0.3333333333333333
-  WARMUP_ITERS: 240
-  CHECKPOINT_PERIOD: 10000
-  IMS_PER_BATCH: 8
+  WARMUP_ITERS: 20
+  CHECKPOINT_PERIOD: 6400
+  IMS_PER_BATCH: 4
 INPUT:
   MIN_SIZE_TRAIN: (400,)
   MAX_SIZE_TRAIN: 512
   MIN_SIZE_TEST: 400
   MAX_SIZE_TEST: 512
-OUTPUT_DIR: "./output/PubLayNet/MaskRCNN"
+OUTPUT_DIR: "./output/ICDAR2019/MaskRCNN"

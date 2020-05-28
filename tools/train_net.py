@@ -139,8 +139,8 @@ def main(args):
     register_coco_instances("ICDAR2019_train", {}, "/media/shared-corpus/ICDAR2019/cTDaR/ICDAR2019train.json", "/media/shared-corpus/ICDAR2019/cTDaR/train/TRACKA")
     register_coco_instances("ICDAR2019_val", {}, "/media/shared-corpus/ICDAR2019/cTDaR/ICDAR2019val.json", "/media/shared-corpus/ICDAR2019/cTDaR/test/TRACKA")
 
-    register_coco_instances("ICDAR2013_train", {}, "/media/shared-corpus/ICDAR2013/cTDaR/ICDAR2013train.json", "/media/shared-corpus/ICDAR2013/cTDaR/train")
-    register_coco_instances("ICDAR2013_val", {}, "/media/shared-corpus/ICDAR2013/cTDaR/ICDAR2013val.json", "/media/shared-corpus/ICDAR2013/cTDaR/val")
+    register_coco_instances("tablebank_train", {}, "/media/shared-corpus/TableBank_data/Detection_data/Latex/Latex.json", "/media/shared-corpus/TableBank_data/Detection_data/Latex/images")
+    register_coco_instances("tablebank_val", {}, "/media/shared-corpus/TableBank_data/Detection_data/Word/Word.json", "/media/shared-corpus/TableBank_data/Detection_data/Word/images")
 
     cfg = setup(args)
 

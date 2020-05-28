@@ -12,7 +12,7 @@ also installs detectron2 with a few simple commands.
 	You can install them together at [pytorch.org](https://pytorch.org) to make sure of this.
 - OpenCV, optional, needed by demo and visualization
 - pycocotools: `pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
-
+- [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) Dataset. | (Optional) [ICDAR 2019 cTDaR](http://sac.founderit.com/dataset-description.html) Dataset, [TableBank](https://github.com/doc-analysis/TableBank) Dataset
 
 ### Build Detectron2 from Source
 
@@ -23,7 +23,7 @@ python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 # (add --user if you don't have permission)
 
 # Or, to install it from a local clone:
-git clone https://github.com/facebookresearch/detectron2.git
+git clone https://github.com/893374759/detectron2.git
 python -m pip install -e detectron2
 
 # Or if you are on macOS

@@ -9,6 +9,9 @@ existing model, and how to train a builtin model on a custom dataset.
 
 For more advanced tutorials, refer to our [documentation](https://detectron2.readthedocs.io/tutorials/extend.html).
 
+#### Register a Dataset (Use Custom Datasets)
+See [Use Custom Datasets](https://detectron2.readthedocs.io/tutorials/datasets.html#use-custom-datasets). 
+We register them in [train_net.py](tools/train_net.py)  `main`. 
 
 ### Inference Demo with Pre-trained Models
 
@@ -66,7 +69,19 @@ To evaluate a model's performance, use
 	--config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml \
 	--eval-only MODEL.WEIGHTS /path/to/checkpoint_file
 ```
+
 For more options, see `./train_net.py -h`.
+
+After `train_net.py --eval-only`, you will get a **results.json** file. 
+If you want to evaluate in [TableBank](https://arxiv.org/abs/1903.01949) standard 
+(from paper [Gilani, Azka , et al. "Table Detection Using Deep Learning." Icdar IEEE Computer Society, 2017.](https://ieeexplore.ieee.org/document/8270062)),
+use command like
+```
+./tablebank_evaluate.py \
+	--evl_dir ./output/.../coco_instances_results.json \
+	--gt_dir .../dataset/ground_truth.json
+```
+
 
 ### Use Detectron2 APIs in Your Code
 

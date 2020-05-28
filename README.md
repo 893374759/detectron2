@@ -6,6 +6,8 @@ It is a ground-up rewrite of the previous version,
 [Detectron](https://github.com/facebookresearch/Detectron/),
 and it originates from [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark/).
 
+Here is a copy to imply Detectron2 on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) detection task. See more in [GETTING_STARTED.md](GETTING_STARTED.md).
+
 <div align="center">
   <img src="https://user-images.githubusercontent.com/1381301/66535560-d3422200-eace-11e9-9123-5535d469db19.png"/>
 </div>

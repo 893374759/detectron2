@@ -1,7 +1,8 @@
+# set for TableBank: https://github.com/doc-analysis/TableBank
 _BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
-  MASK_ON: True
-  WEIGHTS: "detectron2://ImageNetPretrained/FAIR/X-101-32x8d.pkl"
+  MASK_ON: False
+  WEIGHTS: "./output/PubLayNet_table/FasterRCNN/051601/model_final.pth"
   PIXEL_STD: [57.375, 57.120, 58.395]
   RESNETS:
     STRIDE_IN_1X1: False  # this is a C2 model
@@ -12,27 +13,29 @@ MODEL:
     NUM_CLASSES: 1
   RETINANET:
     NUM_CLASSES: 1
+  ROI_BOX_HEAD:
+    POOLER_RESOLUTION: 14
+    POOLER_SAMPLING_RATIO: 2
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
-  ROI_MASK_HEAD:
-    NUM_CONV: 4
-    POOLER_RESOLUTION: 28
-    POOLER_SAMPLING_RATIO: 2
 DATASETS:
-  TRAIN: ("ICDAR2013_train",)
-  TEST: ("ICDAR2013_val",)
+  TRAIN: ("tablebank_train",)
+  TEST: ("tablebank_val",)
 SOLVER:
-  STEPS: (200, )
-  MAX_ITER: 400
-  BASE_LR: 0.001
+  STEPS: (5600, 8000, )
+  MAX_ITER: 9600
+  BASE_LR: 0.01
   GAMMA: 0.1
   WARMUP_FACTOR: 0.3333333333333333
-  WARMUP_ITERS: 1
-  CHECKPOINT_PERIOD: 100
+  WARMUP_ITERS: 2
+  CHECKPOINT_PERIOD: 5000
   IMS_PER_BATCH: 8
 INPUT:
   MIN_SIZE_TRAIN: (400,)
   MAX_SIZE_TRAIN: 512
   MIN_SIZE_TEST: 400
   MAX_SIZE_TEST: 512
-OUTPUT_DIR: "./output/ICDAR2013/MaskRCNN"
+TEST:
+  AUG:
+    FLIP: False
+OUTPUT_DIR: "./output/ICDAR2019/FasterRCNN"

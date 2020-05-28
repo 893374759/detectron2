@@ -1,12 +1,13 @@
+# set for TableBank: https://github.com/doc-analysis/TableBank
 _BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
   MASK_ON: False
-  WEIGHTS: "./output/PubLayNet_table/FasterRCNN/051601/model_final.pth"
+  WEIGHTS: "./output/PubLayNet_table/FasterRCNN32x8/052101/model_final.pth"
   PIXEL_STD: [57.375, 57.120, 58.395]
   RESNETS:
     STRIDE_IN_1X1: False  # this is a C2 model
-    NUM_GROUPS: 64
-    WIDTH_PER_GROUP: 4
+    NUM_GROUPS: 32
+    WIDTH_PER_GROUP: 8
     DEPTH: 101
   ROI_HEADS:
     NUM_CLASSES: 1
@@ -18,17 +19,17 @@ MODEL:
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
 DATASETS:
-  TRAIN: ("ICDAR2019_train",)
-  TEST: ("ICDAR2019_val",)
+  TRAIN: ("tablebank_train",)
+  TEST: ("tablebank_val",)
 SOLVER:
-  STEPS: (6400,  10000)
-  MAX_ITER: 11000
+  STEPS: (5600, 8000, )
+  MAX_ITER: 9600
   BASE_LR: 0.01
   GAMMA: 0.1
   WARMUP_FACTOR: 0.3333333333333333
-  WARMUP_ITERS: 20
-  CHECKPOINT_PERIOD: 6400
-  IMS_PER_BATCH: 4
+  WARMUP_ITERS: 2
+  CHECKPOINT_PERIOD: 5000
+  IMS_PER_BATCH: 8
 INPUT:
   MIN_SIZE_TRAIN: (400,)
   MAX_SIZE_TRAIN: 512
